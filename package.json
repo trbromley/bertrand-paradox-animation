@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "eslint": "^8.28.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.5.1",
+    "eslint-plugin-promise": "^6.1.1"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "js-beautify": "^1.14.7",
+    "pa11y": "^6.2.3",
+    "uglify-js": "^3.17.4"
+  },
+  "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js index.js --fix",
+    "babel": "rm -f index_es5.js; ./node_modules/babel-cli/bin/babel.js index.js >> index_es5.js",
+    "uglify": "rm -f index_min.js; ./node_modules/uglify-js/bin/uglifyjs index_es5.js -c -m -e >> index_min.js",
+    "all": "npm run babel; npm run uglify"
+  }
+}
